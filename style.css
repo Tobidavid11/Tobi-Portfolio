@@ -1084,7 +1084,8 @@ section {
   border-color: rgba(139, 92, 246, 0.3);
 }
 
-.work-item:nth-child(even) { /* Alternate image position */
+.work-item:nth-child(even) {
+  /* Alternate image position */
   flex-direction: row-reverse;
 }
 
@@ -1446,7 +1447,7 @@ section {
 [data-theme="light"] .form-group input,
 [data-theme="light"] .form-group textarea {
   background: rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .form-group input:focus,
