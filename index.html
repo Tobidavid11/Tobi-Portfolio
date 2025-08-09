@@ -3,34 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tobiloba David | Web Developer & Designer</title>
-    <meta name="description" content="Web Developer & Designer creating exceptional digital experiences with Web3 aesthetics">
+    <title>Tobiloba David | Product Designer & Developer</title>
+    <meta name="description" content="Product Designer, Brand Designer & Web Developer creating exceptional digital experiences with Web3 aesthetics">
     
-    <!-- Fonts -->
+     Fonts 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Styles -->
+     Styles 
     <link rel="stylesheet" href="style.css">
     
-    <!-- Favicon -->
+     Favicon 
     <link rel="shortcut icon" href="assets/profile.png" type="image/png">
 </head>
 <body>
-    <!-- Cursor -->
+     Cursor 
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
     
-    <!-- Scroll Progress -->
+     Scroll Progress 
     <div class="scroll-progress"></div>
     
-    <!-- Navigation -->
+     Navigation 
     <nav class="nav">
         <div class="nav-container">
             <div class="nav-logo">
                 <img src="assets/profile.png" alt="Tobiloba David" class="logo-img">
             </div>
+            <ul class="nav-list">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#work" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
             <div class="nav-actions">
                 <button class="theme-toggle" aria-label="Toggle theme">
                     <svg class="sun-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -49,15 +55,14 @@
         </div>
     </nav>
     
-    <!-- Mobile Menu -->
+     Mobile Menu 
     <div class="mobile-menu">
         <div class="mobile-menu-bg"></div>
         <div class="mobile-menu-content">
             <ul class="mobile-menu-list">
                 <li><a href="#home" class="mobile-menu-link">Home</a></li>
                 <li><a href="#about" class="mobile-menu-link">About</a></li>
-                <li><a href="#work" class="mobile-menu-link">Work</a></li>
-                <li><a href="#skills" class="mobile-menu-link">Skills</a></li>
+                <li><a href="#work" class="mobile-menu-link">Projects</a></li>
                 <li><a href="#testimonials" class="mobile-menu-link">Testimonials</a></li>
                 <li><a href="#contact" class="mobile-menu-link">Contact</a></li>
             </ul>
@@ -81,202 +86,124 @@
         </div>
     </div>
     
-    <!-- Main Content -->
+     Main Content 
     <main>
-        <!-- Hero Section -->
+         Hero Section 
         <section id="home" class="hero">
             <div class="hero-bg">
                 <div class="hero-grid"></div>
                 <div class="hero-gradient"></div>
                 <div class="floating-shapes">
-                    <!-- <div class="shape shape-1"></div> -->
                     <div class="shape shape-2"></div>
-                    <!-- <div class="shape shape-3"></div> -->
                     <div class="shape shape-4"></div>
                 </div>
             </div>
             <div class="container">
                 <div class="hero-content">
-                    <div class="hero-badge">
-                        <span class="badge-dot"></span>
-                        Available for work
-                    </div>
-                    <h1 class="hero-title">
-                        <span class="title-line">Creating Digital</span>
-                        <span class="title-line">Experiences with</span>
-                        <span class="title-line gradient-text">Web3 Aesthetics</span>
+                    <img src="assets/profile.png" alt="Tobiloba David" class="hero-profile-img animate-on-scroll">
+                    <h1 class="hero-title animate-on-scroll">
+                        <span class="title-line">Hi there, I'm Tobi David.</span>
+                        <span class="title-line gradient-text">#Product Designer</span>
                     </h1>
-                    <p class="hero-description">
-                        I'm a passionate Web Developer, UiUx Designer & Brand Designer specializing in creating 
+                    <p class="hero-description animate-on-scroll">
+                        I'm a passionate Web Developer, UI/UX Designer & Brand Designer specializing in creating 
                         exceptional digital experiences that help businesses grow and stand out in the Web3 space.
                     </p>
-                    <div class="hero-cta">
-                        <a href="#work" class="btn btn-primary">
-                            <span>View My Work</span>
+                    <div class="hero-cta animate-on-scroll">
+                        <a href="#contact" class="btn btn-primary">
+                            <span>Hire me</span>
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                                 <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </a>
-                        <a href="#contact" class="btn btn-secondary">
-                            <span>Let's Talk</span>
+                        <a href="#work" class="btn btn-secondary">
+                            <span>See my work</span>
                         </a>
                     </div>
-                    <div class="hero-stats">
-                        <div class="stat">
-                            <span class="stat-number">70+</span>
-                            <span class="stat-label">Projects</span>
+                    <div class="skill-icons-grid animate-on-scroll">
+                        <div class="skill-icon-item">
+                            <img src="assets/figma.png" alt="Figma" loading="lazy">
                         </div>
-                        <div class="stat">
-                            <span class="stat-number">40+</span>
-                            <span class="stat-label">Happy Clients</span>
+                        <div class="skill-icon-item">
+                            <img src="assets/react.png" alt="React" loading="lazy">
                         </div>
-                        <div class="stat">
-                            <span class="stat-number">4+</span>
-                            <span class="stat-label">Years Experience</span>
+                        <div class="skill-icon-item">
+                            <img src="assets/Next.png" alt="Next.js" loading="lazy">
                         </div>
-                    </div>
-                </div>
-                <div class="hero-visual">
-                    <div class="hero-card"> 
-                        <div class="card-header">
-                            <div class="card-dots">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                            <span class="card-title">Design System</span>
+                        <div class="skill-icon-item">
+                            <img src="assets/TS.png" alt="TypeScript" loading="lazy">
                         </div>
-                        <div class="card-content">
-                            <div class="design-tokens">
-                                <div class="token">
-                                    <div class="token-color" style="background: #8B5CF6;"></div>
-                                    <span>Primary</span>
-                                </div> 
-                                <div class="token">
-                                    <div class="token-color" style="background: #F59E0B;"></div>
-                                    <span>Accent</span>
-                                </div>
-                                <div class="token">
-                                    <div class="token-color" style="background: #10B981;"></div>
-                                    <span>Success</span>
-                                </div>
-                            </div>
-                            <div class="typography-sample">
-                                <div class="text-xl">Heading XL</div>
-                                <div class="text-md">Body Medium</div>
-                                <div class="text-sm">Caption Small</div>
-                            </div>
+                        <div class="skill-icon-item">
+                            <img src="assets/tailwindcss.png" alt="Tailwind CSS" loading="lazy">
+                        </div>
+                        <div class="skill-icon-item">
+                            <img src="assets/html.png" alt="HTML" loading="lazy">
+                        </div>
+                        <div class="skill-icon-item">
+                            <img src="assets/css logo.jpg" alt="CSS" loading="lazy">
+                        </div>
+                        <div class="skill-icon-item">
+                            <img src="assets/JS.png" alt="JavaScript" loading="lazy">
+                        </div>
+                        <div class="skill-icon-item">
+                            <img src="assets/Git.png" alt="Git" loading="lazy">
+                        </div>
+                        <div class="skill-icon-item">
+                            <img src="assets/inkscape.jpg" alt="Inkscape" loading="lazy">
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- <div class="scroll-indicator">
-                <div class="scroll-mouse">
-                    <div class="scroll-wheel"></div>
-                </div>
-                <span>Scroll to explore</span>
-            </div> -->
         </section>
-        
-        <!-- Trusted By Section -->
-        <section class="trusted-by">
-            <div class="container">
-                <p class="section-subtitle">Trusted by amazing companies</p>
-                <div class="logos-grid">
-                    <div class="logo-item">
-                        <img src="assets/trusted1.png" alt="Jofwitsolutions" loading="lazy">
-                    </div>
-                    <div class="logo-item">
-                        <img src="assets/trusted2.png" alt="Devcent" loading="lazy">
-                    </div>
-                    <div class="logo-item">
-                        <img src="assets/trusted3.png" alt="JobIt" loading="lazy">
-                    </div>
-                    <div class="logo-item">
-                        <img src="assets/trusted5.png" alt="Easeman Technology" loading="lazy">
-                    </div>
-                    <div class="logo-item">
-                        <img src="assets/trusted6.png" alt="QuantumX" loading="lazy">
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- About Section -->
+
+<!-- about section -->
         <section id="about" class="about">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-tag">About Me</span>
-                    <h2 class="section-title">Crafting Digital Excellence</h2>
-                    <p class="section-description">
-                        I bridge the gap between design and development, creating cohesive digital experiences 
-                        that resonate with users and drive business growth.
-                    </p>
+                    <span class="section-tag animate-on-scroll">About</span>
                 </div>
                 <div class="about-content">
                     <div class="about-text">
-                        <div class="about-card">
-                            <h3>My Approach</h3>
-                            <p>I believe in the power of thoughtful design combined with clean, efficient code. 
-                            Every project starts with understanding the user's needs and business goals, then 
-                            crafting solutions that are both beautiful and functional.</p>
-                        </div>
-                        <div class="about-card">
-                            <h3>What I Do</h3>
-                            <ul class="services-list">
-                                <li>
-                                    <span class="service-icon">🎨</span>
-                                    <div>
-                                        <strong>Product Design</strong>
-                                        <p>User research, wireframing, prototyping, and UI/UX design</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <span class="service-icon">🚀</span>
-                                    <div>
-                                        <strong>Web Development</strong>
-                                        <p>Frontend development with modern frameworks and technologies</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <span class="service-icon">✨</span>
-                                    <div>
-                                        <strong>Brand Design</strong>
-                                        <p>Visual identity, logo design, and brand system development</p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                        <p class="about-description-text animate-on-scroll">
+                            I'm Product Designer passionate about creating digital experiences that are both 
+                            visually stunning and highly functional. Over the years, I've designed various fintech 
+                            apps, Web3 platforms, mobile applications, and digital solutions for different brands, 
+                            business owners, and forward-thinking start-ups.
+                        </p>
+                        <p class="about-description-text animate-on-scroll">
+                            My approach combines user research, design thinking, and prototyping to craft 
+                            products that solve real problems while delivering a seamless user experience. From 
+                            wireframes to high-fidelity designs, I ensure every detail aligns with both user needs 
+                            and business goals.
+                        </p>
+                        <p class="about-description-text animate-on-scroll">
+                            I believe great design is more than just pixels — it's about creating meaningful 
+                            connections between people and technology. Every project I work on is an 
+                            opportunity to empower users, elevate brands, and bring ideas to life.
+                        </p>
                     </div>
-                    <div class="about-visual">
+                    <div class="about-visual animate-on-scroll">
                         <div class="skills-chart">
                             <div class="skill-item">
-                                <span class="skill-name">Design</span>
+                                <span class="skill-name">UiUx Design</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="98"></div>
+                                </div>
+                                <span class="skill-percentage">98%</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Web3 UI</span>
                                 <div class="skill-bar">
                                     <div class="skill-progress" data-progress="95"></div>
                                 </div>
                                 <span class="skill-percentage">95%</span>
                             </div>
                             <div class="skill-item">
-                                <span class="skill-name">Frontend</span>
+                                <span class="skill-name">Web Development</span>
                                 <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="90"></div>
+                                    <div class="skill-progress" data-progress="92"></div>
                                 </div>
-                                <span class="skill-percentage">90%</span>
-                            </div>
-                            <div class="skill-item">
-                                <span class="skill-name">Branding</span>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="85"></div>
-                                </div>
-                                <span class="skill-percentage">85%</span>
-                            </div>
-                            <div class="skill-item">
-                                <span class="skill-name">Web3 UI</span>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="88"></div>
-                                </div>
-                                <span class="skill-percentage">88%</span>
+                                <span class="skill-percentage">92%</span>
                             </div>
                         </div>
                     </div>
@@ -284,239 +211,151 @@
             </div>
         </section>
         
-        <!-- Work Section -->
+         <!-- Work Section  -->
         <section id="work" class="work">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-tag">Featured Work</span>
-                    <h2 class="section-title">Projects That Make Impact</h2>
-                    <p class="section-description">
-                        A collection of projects that showcase my expertise in design, development, and branding.
+                    <span class="section-tag animate-on-scroll">My Works</span>
+                    <p class="section-description animate-on-scroll">
+                        Below are some of my selected works, each reflecting my dedication to craft, 
+                        creativity, and user-centered design.
                     </p>
                 </div>
                 <div class="work-grid">
-                    <article class="work-item featured">
-                        <div class="work-image">
-                            <img src="assets/ai-blog.png" alt="AI Blog Platform" loading="lazy">
-                            <div class="work-overlay">
-                                <div class="work-links">
-                                    <a href="http://ai-blog-ivgwbkt8x-tobidavid11s-projects.vercel.app/" target="_blank" rel="noopener" class="work-link">
-                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                            <path d="M11 3L17 9L11 15M17 9H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                    </a>
-                                    <a href="#" class="work-link">
-                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                                            <path d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z"/>
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                    <article class="work-item animate-on-scroll">
                         <div class="work-content">
-                            <div class="work-category">Web Development</div>
-                            <h3 class="work-title">AI Blog Platform</h3>
+                            <h3 class="work-title">Zenith Bank Redesigned</h3>
                             <p class="work-description">
-                                An interactive platform where users can create, like, comment, and share AI-focused posts, 
-                                built with Next.js and Firebase with modern Web3 aesthetics.
+                                A mobile banking app user interface redesign.
                             </p>
                             <div class="work-tech">
-                                <span class="tech-tag">Next.js</span>
-                                <span class="tech-tag">Firebase</span>
-                                <span class="tech-tag">Tailwind CSS</span>
-                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Figma</span>
+                                <span class="tech-tag">Photoroom</span>
+                                <span class="tech-tag">Inkscape</span>
                             </div>
+                            <div class="work-links">
+                                <a href="https://www.figma.com/proto/8dmPQT96RfkyDErdoflxE8/Design-By-David?node-id=245-465&t=TqFlfOA2k8kYxz4T-0&scaling=min-zoom&content-scaling=fixed&page-id=1%3A283&starting-point-node-id=3%3A29" target="_blank" rel="noopener" class="work-link">
+                                    <span>Explore this project</span>
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="work-image">
+                            <img src="assets/Works1.png" alt="Zenith Bank Redesigned" loading="lazy">
                         </div>
                     </article>
                     
-                    <article class="work-item">
-                        <div class="work-image">
-                            <img src="assets/estatein-real-estate.png" alt="Estatein Real Estate" loading="lazy">
-                            <div class="work-overlay">
-                                <div class="work-links">
-                                    <a href="https://estatein-real-estate-4zhi-git-main-tobidavid11s-projects.vercel.app/" target="_blank" rel="noopener" class="work-link">
-                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                            <path d="M11 3L17 9L11 15M17 9H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                    </a>
-                                </div>
+                    <article class="work-item animate-on-scroll">
+                        <div class="work-content">
+                            <h3 class="work-title">PlayMax</h3>
+                            <p class="work-description">
+                                A mobile app for streaming top and trending songs.
+                            </p>
+                            <div class="work-tech">
+                                <span class="tech-tag">Figma</span>
+                                <span class="tech-tag">Photoroom</span>
+                            </div>
+                            <div class="work-links">
+                                <a href="https://www.figma.com/proto/8dmPQT96RfkyDErdoflxE8/Design-By-David?node-id=277-671&t=UmSftMTsxKrhYt6V-0&scaling=min-zoom&content-scaling=fixed&page-id=1%3A283&starting-point-node-id=3%3A29" target="_blank" rel="noopener" class="work-link">
+                                    <span>Explore this project</span>
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
                             </div>
                         </div>
+                        <div class="work-image">
+                            <img src="assets/Works2.png" alt="PlayMax App" loading="lazy">
+                        </div>
+                    </article>
+                    
+                    <article class="work-item animate-on-scroll">
                         <div class="work-content">
-                            <div class="work-category">UI/UX Design</div>
+                            <h3 class="work-title">SquareUp</h3>
+                            <p class="work-description">
+                                A digital product studio agency company.
+                            </p>
+                            <div class="work-tech">
+                                <span class="tech-tag">Figma</span>
+                                <span class="tech-tag">Inkscape</span>
+                                <span class="tech-tag">Photoshop</span>
+                            </div>
+                            <div class="work-links">
+                                <a href="https://www.figma.com/design/nkGbiNboKz3NSwaiQKCNbR/SquareUp-Design?node-id=3-53&p=f&t=Td1fFAkjQxriYblL-0" target="_blank" rel="noopener" class="work-link">
+                                    <span>Explore this project</span>
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="work-image">
+                            <img src="assets/Works3.png" alt="SquareUp Digital Agency" loading="lazy">
+                        </div>
+                    </article>
+
+                    <article class="work-item animate-on-scroll">
+                        <div class="work-content">
+                            <h3 class="work-title">Creamella Foods</h3>
+                            <p class="work-description">
+                                Website design for a food production company.
+                            </p>
+                            <div class="work-tech">
+                                <span class="tech-tag">Figma</span>
+                                <span class="tech-tag">Photoroom</span>
+                            </div>
+                            <div class="work-links">
+                                <a href="https://www.figma.com/proto/aVwlz10kpLEXcM3QpA8GtH/Creamella?node-id=61-165&t=D3La9iys8qqreQ3D-0&scaling=min-zoom&content-scaling=fixed&page-id=43%3A66&starting-point-node-id=61%3A165" target="_blank" rel="noopener" class="work-link">
+                                    <span>Explore this project</span>
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="work-image">
+                            <img src="assets/Works4.png" alt="Creamella Foods Website" loading="lazy">
+                        </div>
+                    </article>
+                    
+                    <article class="work-item animate-on-scroll">
+                        <div class="work-content">
                             <h3 class="work-title">Estatein Real Estate</h3>
                             <p class="work-description">
                                 Modern real estate platform with clean design and intuitive user experience.
                             </p>
                             <div class="work-tech">
-                                <span class="tech-tag">React</span>
-                                <span class="tech-tag">TypeScript</span>
+                                <span class="tech-tag">Web Development</span>
                                 <span class="tech-tag">CSS</span>
                             </div>
+                            <div class="work-links">
+                                <a href="https://estatein-real-estate-4zhi-git-main-tobidavid11s-projects.vercel.app/" target="_blank" rel="noopener" class="work-link">
+                                    <span>Explore this project</span>
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
-                    </article>
-                    
-                    <article class="work-item">
                         <div class="work-image">
-                            <img src="assets/Restaurant -website.png" alt="Dexcraft Agency" loading="lazy">
-                            <div class="work-overlay">
-                                <div class="work-links">
-                                    <a href="https://resturant-website-sage.vercel.app/" target="_blank" rel="noopener" class="work-link">
-                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                            <path d="M11 3L17 9L11 15M17 9H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="work-content">
-                            <div class="work-category">Web Development</div>
-                            <h3 class="work-title">SpiceCraft</h3>
-                            <p class="work-description">
-                                SpiceCraft is a premium restaurant specializing in artisanal cuisine crafted with fresh, locally-sourced ingredients.
-                            </p>
-                            <div class="work-tech">
-                                <span class="tech-tag">Next.js</span>
-                                <span class="tech-tag">React</span>
-                                <span class="tech-tag">Tailwind CSS</span>
-                            </div>
+                            <img src="assets/estatein-real-estate.png" alt="Estatein Real Estate" loading="lazy">
                         </div>
                     </article>
-                    
-                    <article class="work-item">
-                        <div class="work-image">
-                            <img src="assets/brand1.jpeg" alt="Jetherverse Brand" loading="lazy">
-                            <div class="work-overlay">
-                                <div class="work-links">
-                                    <a href="https://tobi-portfolio-five.vercel.app/assets/brand1.jpeg" class="work-link">
-                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                            <path d="M11 3L17 9L11 15M17 9H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="work-content">
-                            <div class="work-category">Brand Identity</div>
-                            <h3 class="work-title">Jetherverse</h3>
-                            <p class="work-description">
-                                Visual brand identity for a fintech company with modern Web3 aesthetics.
-                            </p>
-                            <div class="work-tech">
-                                <span class="tech-tag">Figma</span>
-                                <span class="tech-tag">Inkscape</span>
-                                <span class="tech-tag">Brand Design</span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-                <div class="work-cta">
-                    <a href="#contact" class="btn btn-outline">
-                        <span>Let's Work Together</span>
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </a>
                 </div>
             </div>
         </section>
         
-        <!-- Skills Section -->
-        <section id="skills" class="skills">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag">My Toolkit</span>
-                    <h2 class="section-title">Technologies & Tools</h2>
-                    <p class="section-description">
-                        The technologies and tools I use to bring ideas to life.
-                    </p>
-                </div>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3>Design</h3>
-                        <div class="skill-items">
-                            <div class="skill-item">
-                                <img src="assets/logos/logo-14.png" alt="Figma" loading="lazy">
-                                <span>Figma</span>
-                            </div>
-                            <div class="skill-item">
-                                <img src="assets/inkscape.jpg" alt="Inkscape" loading="lazy">
-                                <span>Inkscape</span>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-icon">
-                     <img src="assets/pixelab.jpeg" alt="Inkscape" loading="lazy">
-                                </div>
-                                <span>PixelLab</span>
-                            </div>
-                                    <div class="skill-item">
-                                        <div class="skill-icon">
-                            <img src="assets/photopea.png" alt="Inkscape" loading="lazy">
-                                        </div>
-                                        <span>Photopea</span>
-                                    </div>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3>Frontend</h3>
-                        <div class="skill-items">
-                            <div class="skill-item">
-                                <img src="assets/logos/logo-20.png" alt="React" loading="lazy">
-                                <span>React</span>
-                            </div>
-                            <div class="skill-item">
-                                <img src="assets/logos/logo-19.png" alt="Next.js" loading="lazy">
-                                <span>Next.js</span>
-                            </div>
-                            <div class="skill-item">
-                                <img src="assets/logos/logo-4.png" alt="TypeScript" loading="lazy">
-                                <span>TypeScript</span>
-                            </div>
-                            <div class="skill-item">
-                                <img src="assets/logos/logo-9.png" alt="Tailwind CSS" loading="lazy">
-                                <span>Tailwind</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3>Core</h3>
-                        <div class="skill-items">
-                            <div class="skill-item">
-                                <img src="assets/logos/logo-1.png" alt="HTML" loading="lazy">
-                                <span>HTML</span>
-                            </div>
-                            <div class="skill-item">
-                                <img src="assets/logos/logo-10.png" alt="CSS" loading="lazy">
-                                <span>CSS</span>
-                            </div>
-                            <div class="skill-item">
-                                <img src="assets/logos/logo-2.png" alt="JavaScript" loading="lazy">
-                                <span>JavaScript</span>
-                            </div>
-                            <div class="skill-item">
-                                <img src="assets/logos/logo-13.png" alt="Git" loading="lazy">
-                                <span>Git</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Testimonials Section -->
+         <!-- Testimonials Section  -->
         <section id="testimonials" class="testimonials">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-tag">Client Feedback</span>
-                    <h2 class="section-title">What People Say</h2>
-                    <p class="section-description">
-                        Testimonials from clients and collaborators I've had the pleasure to work with.
-                    </p>
+                    <span class="section-tag animate-on-scroll">Testimonials</span>
                 </div>
                 <div class="testimonials-container">
                     <div class="testimonials-grid" id="testimonials-grid">
-                        <!-- Existing testimonials plus new ones -->
-                        <div class="testimonial-item">
+                        <div class="testimonial-item animate-on-scroll">
                             <div class="testimonial-content">
                                 <div class="testimonial-quote">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -529,16 +368,16 @@
                                     and accessibility everything a good developer should care about.
                                 </p>
                                 <div class="testimonial-author">
-                                    <img src="assets/Team1.png" alt="Christine Jensen" loading="lazy">
+                                    <img src="assets/image1.webp" alt="Christine Jensen" loading="lazy">
                                     <div class="author-info">
-                                        <h4>Christine Jensen</h4>
-                                        <p>CTO, IKEA Group (Sweden)</p>
+                                        <h4>Jayden Benson</h4>
+                                        <p>CEO, Jetherverse</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="testimonial-item">
+                        <div class="testimonial-item animate-on-scroll">
                             <div class="testimonial-content">
                                 <div class="testimonial-quote">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -546,9 +385,75 @@
                                     </svg>
                                 </div>
                                 <p class="testimonial-text">
-                                    Tobiloba David is a genius when it comes to coding and designing. He understands the effect 
-                                    of good brand identity and the impact it can have on a business and he delivers well. 
-                                    He handles Web3 designs and branding effortlessly!
+                                   Dave took our vague vision and turned it into a powerful brand identity. From logo to colors and mockups, everything was professional 
+                                    and on-point. He understood our audience and gave our brand a personality we're proud of.
+                                </p>
+                                <div class="testimonial-author">
+                                    <img src="assets/image2.jpg" alt="Confidence Osagie" loading="lazy">
+                                    <div class="author-info">
+                                        <h4>Khaff Couture</h4>
+                                        <p>Fashion Brand</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial-item animate-on-scroll">
+                            <div class="testimonial-content">
+                                <div class="testimonial-quote">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                                    </svg>
+                                </div>
+                                <p class="testimonial-text">
+                                   Dave is a true creative partner. He doesn't just take orders; he collaborates, listens, and brings fresh ideas to the table. 
+                                    His designs are not only beautiful but also strategically aligned with business goals. 
+                                
+                                </p>
+                                <div class="testimonial-author">
+                                    <img src="assets/image3.jpg" alt="Khaff Couture" loading="lazy">
+                                    <div class="author-info">
+                                        <h4>Akwi, Cameroon</h4>
+                                        <p>Software developer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                         <!-- Additional testimonials (initially hidden)  -->
+                        <div class="testimonial-item testimonial-hidden animate-on-scroll">
+                            <div class="testimonial-content">
+                                <div class="testimonial-quote">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                                    </svg>
+                                </div>
+                                <p class="testimonial-text">
+                                    Dave has a sharp problem-solving mindset. When we hit roadblocks in our project, 
+                                    he was quick to find efficient, creative solutions in designs. He brings
+                                    clarity and calm to complex challenges.
+                                </p>
+                                <div class="testimonial-author">
+                                    <img src="assets/image4.png" alt="Lewis Josh" loading="lazy">
+                                    <div class="author-info">
+                                        <h4>Lewis Josh</h4>
+                                        <p>UI/UX Designer (South Africa)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-item testimonial-hidden animate-on-scroll">
+                            <div class="testimonial-content">
+                                <div class="testimonial-quote">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                                    </svg>
+                                </div>
+                                <p class="testimonial-text">
+                                   Tobiloba way of handling web3 projects is impressive. 
+                                    He understands the nuances of blockchain and Web3 design, creating interfaces that are not only functional but also engaging. 
+                                    His work has helped me connect with the web3 community in a meaningful way.
                                 </p>
                                 <div class="testimonial-author">
                                     <img src="assets/image5.jpg" alt="Dexter" loading="lazy">
@@ -559,8 +464,8 @@
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="testimonial-item">
+
+                        <div class="testimonial-item testimonial-hidden animate-on-scroll">
                             <div class="testimonial-content">
                                 <div class="testimonial-quote">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -581,71 +486,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Additional testimonials (initially hidden) -->
-                        <div class="testimonial-item testimonial-hidden">
-                            <div class="testimonial-content">
-                                <div class="testimonial-quote">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-                                    </svg>
-                                </div>
-                                <p class="testimonial-text">
-                                    Working with Dave has been a rewarding experience. He's a team player who brings positive energy and fresh ideas to 
-                                    every project. He's always open to feedback, willing to help others, and genuinely cares about the quality of the work we deliver together.
-                                </p>
-                                <div class="testimonial-author">
-                                    <img src="assets/image1.webp" alt="Jayden Benson" loading="lazy">
-                                    <div class="author-info">
-                                        <h4>Jayden Benson</h4>
-                                        <p>CEO, Jetherverse</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="testimonial-item testimonial-hidden">
-                            <div class="testimonial-content">
-                                <div class="testimonial-quote">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-                                    </svg>
-                                </div>
-                                <p class="testimonial-text">
-                                    Dave took our vague vision and turned it into a powerful brand identity. From logo to colors and mockups, everything was professional 
-                                    and on-point. He understood our audience and gave our brand a personality we're proud of.
-                                </p>
-                                <div class="testimonial-author">
-                                    <img src="assets/image2.jpg" alt="Khaff Couture" loading="lazy">
-                                    <div class="author-info">
-                                        <h4>Khaff Couture</h4>
-                                        <p>CEO, Fashion Brand (Nigeria)</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="testimonial-item testimonial-hidden">
-                            <div class="testimonial-content">
-                                <div class="testimonial-quote">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-                                    </svg>
-                                </div>
-                                <p class="testimonial-text">
-                                    Dave has a sharp problem-solving mindset. When we hit roadblocks in our project, 
-                                    he was quick to find efficient, creative solutions — whether in code or design. He brings
-                                    clarity and calm to complex challenges.
-                                </p>
-                                <div class="testimonial-author">
-                                    <img src="assets/image4.png" alt="Lewis Josh" loading="lazy">
-                                    <div class="author-info">
-                                        <h4>Lewis Josh</h4>
-                                        <p>UI/UX Designer (South Africa)</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     
                     <div class="testimonials-controls">
@@ -660,7 +500,7 @@
             </div>
         </section>
         
-        <!-- Contact Section -->
+         <!-- Contact Section  -->
         <section id="contact" class="contact">
             <div class="contact-bg">
                 <div class="contact-pattern"></div>
@@ -668,9 +508,8 @@
             </div>
             <div class="container">
                 <div class="section-header">
-                    <span class="section-tag">Get In Touch</span>
-                    <h2 class="section-title">Let's Create Something Amazing</h2>
-                    <p class="section-description">
+                    <span class="section-tag animate-on-scroll">Get in touch</span>
+                    <p class="section-description animate-on-scroll">
                         Ready to bring your ideas to life? Let's discuss your project and create something extraordinary together.
                     </p>
                 </div>
@@ -699,23 +538,6 @@
                                 <h3>Location</h3>
                                 <p>Lagos, Nigeria</p>
                             </div>
-                        </div>
-                        <div class="contact-socials">
-                            <a href="https://github.com/Tobidavid11" target="_blank" rel="noopener" class="social-link">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                                </svg>
-                            </a>
-                            <a href="https://www.linkedin.com/in/tobiloba-david-403828363" target="_blank" rel="noopener" class="social-link">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                                </svg>
-                            </a>
-                            <a href="https://x.com/TobiDavidX" target="_blank" rel="noopener" class="social-link">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                                </svg>
-                            </a>
                         </div>
                     </div>
                     <form class="contact-form">
@@ -747,7 +569,7 @@
         </section>
     </main>
     
-    <!-- Footer -->
+     <!-- Footer  -->
     <footer class="footer">
         <div class="footer-bg">
             <div class="footer-pattern"></div>
@@ -756,46 +578,32 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <img src="assets/profile.png" alt="Tobiloba David" class="footer-logo">
-                    <p class="footer-tagline">Creating digital experiences with Web3 aesthetics</p>
-                </div>
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h4>Navigation</h4>
-                        <ul>
-                            <li><a href="#home">Home</a></li>
-                            <li><a href="#about">About</a></li>
-                            <li><a href="#work">Work</a></li>
-                            <li><a href="#contact">Contact</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h4>Services</h4>
-                        <ul>
-                            <li><a href="#about">Product Design</a></li>
-                            <li><a href="#about">Web Development</a></li>
-                            <li><a href="#about">Brand Design</a></li>
-                            <li><a href="#about">Web3 UI/UX</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h4>Connect</h4>
-                        <ul>
-                            <li><a href="https://github.com/Tobidavid11" target="_blank" rel="noopener">GitHub</a></li>
-                            <li><a href="https://www.linkedin.com/in/tobiloba-david-403828363" target="_blank" rel="noopener">LinkedIn</a></li>
-                            <li><a href="https://x.com/TobiDavidX" target="_blank" rel="noopener">Twitter</a></li>
-                            <li><a href="mailto:davetalks4@gmail.com">Email</a></li>
-                        </ul>
-                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 Tobiloba David. All rights reserved.</p>
-                <p>Designed & developed with ❤️</p>
+                <div class="footer-socials">
+                    <a href="https://x.com/TobiDavidX" target="_blank" rel="noopener" class="social-link">
+                        <img src="assets/X logo.png" alt="X" loading="lazy">
+                    </a>
+                    <a href="https://www.linkedin.com/in/tobiloba-david-403828363" target="_blank" rel="noopener" class="social-link">
+                        <img src="assets/linkedin.png" alt="LinkedIn" loading="lazy">
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61551508845502" target="_blank" rel="noopener" class="social-link">
+                        <img src="assets/facebook logo.png" alt="Facebook" loading="lazy">
+                    </a>
+                    <a href="mailto:davetalks4@gmail.com" target="_blank" rel="noopener" class="social-link">
+                        <img src="assets/mail.jpg" alt="Gmail" loading="lazy">
+                    </a>
+                    <a href="https://wa.me/08105323578?text=Hello%20I%20need%20your%20service%20for%20my-----" target="_blank" rel="noopener" class="social-link">
+                        <img src="assets/whatsapp.jpg" alt="WhatsApp" loading="lazy">
+                    </a>
+                </div>
             </div>
         </div>
     </footer>
     
-    <!-- Scripts -->
+
     <script src="script.js"></script>
 </body>
 </html>

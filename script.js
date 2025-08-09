@@ -24,7 +24,7 @@ class CustomCursor {
     })
 
     // Cursor interactions
-    const interactiveElements = $$("a, button, .work-item, .skill-item, .testimonial-item")
+    const interactiveElements = $$("a, button, .work-item, .skill-icon-item, .testimonial-item")
     interactiveElements.forEach((el) => {
       el.addEventListener("mouseenter", () => {
         this.cursor.style.transform = "translate(-50%, -50%) scale(1.5)"
@@ -66,6 +66,7 @@ class Navigation {
     this.mobileMenu = $(".mobile-menu")
     this.mobileLinks = $$(".mobile-menu-link")
     this.themeToggle = $(".theme-toggle")
+    this.desktopNavLinks = $$(".nav-list .nav-link"); // New selector for desktop links
     this.init()
   }
 
@@ -110,7 +111,7 @@ class Navigation {
       this.initTheme()
     }
 
-    // Smooth scroll for anchor links
+    // Smooth scroll for anchor links (both desktop and mobile)
     $$('a[href^="#"]').forEach((link) => {
       link.addEventListener("click", (e) => {
         e.preventDefault()
@@ -121,8 +122,16 @@ class Navigation {
             block: "start",
           })
         }
+        // Close mobile menu if a link is clicked inside it
+        if (this.mobileMenu.classList.contains("active")) {
+          this.closeMobileMenu();
+        }
       })
     })
+
+    // Active link highlighting for desktop navigation
+    window.addEventListener('scroll', () => this.highlightNavLink());
+    this.highlightNavLink(); // Initial call
   }
 
   toggleMobileMenu() {
@@ -158,12 +167,32 @@ class Navigation {
 
     document.documentElement.setAttribute("data-theme", theme)
   }
+
+  highlightNavLink() {
+    const sections = $$('section[id]');
+    let currentActive = '';
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - this.nav.offsetHeight - 20; // Adjust offset for fixed nav
+      const sectionHeight = section.clientHeight;
+      if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+        currentActive = section.getAttribute('id');
+      }
+    });
+
+    this.desktopNavLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href').includes(currentActive)) {
+        link.classList.add('active');
+      }
+    });
+  }
 }
 
 // Scroll Animations
 class ScrollAnimations {
   constructor() {
-    this.elements = $$(".animate-on-scroll, .section-tag, .section-title, .section-description")
+    this.elements = $$(".animate-on-scroll, .section-tag, .section-title, .section-description, .about-description-text")
     this.init()
   }
 
@@ -210,58 +239,6 @@ class ScrollAnimations {
     )
 
     skillBars.forEach((bar) => observer.observe(bar))
-  }
-}
-
-// Parallax Effects
-class ParallaxEffects {
-  constructor() {
-    this.shapes = $$(".shape")
-    this.init()
-  }
-
-  init() {
-    if (!this.shapes.length) return
-
-    window.addEventListener("scroll", () => {
-      const scrolled = window.pageYOffset
-      const rate = scrolled * -0.5
-
-      this.shapes.forEach((shape, index) => {
-        const speed = (index + 1) * 0.2
-        shape.style.transform = `translateY(${rate * speed}px) rotate(${scrolled * 0.1}deg)`
-      })
-    })
-  }
-}
-
-// Work Items Hover Effects
-class WorkEffects {
-  constructor() {
-    this.workItems = $$(".work-item")
-    this.init()
-  }
-
-  init() {
-    if (!this.workItems.length) return
-
-    this.workItems.forEach((item) => {
-      item.addEventListener("mouseenter", () => {
-        this.workItems.forEach((otherItem) => {
-          if (otherItem !== item) {
-            otherItem.style.opacity = "0.5"
-            otherItem.style.transform = "scale(0.95)"
-          }
-        })
-      })
-
-      item.addEventListener("mouseleave", () => {
-        this.workItems.forEach((otherItem) => {
-          otherItem.style.opacity = "1"
-          otherItem.style.transform = "scale(1)"
-        })
-      })
-    })
   }
 }
 
@@ -346,7 +323,7 @@ class ContactForm {
 class TypingAnimation {
   constructor() {
     this.element = $(".hero-title .gradient-text")
-    this.texts = ["Web3 Aesthetics", "Modern Design", "Digital Innovation", "Creative Solutions"]
+    this.texts = ["#Product Designer", "#Web Developer", "#Brand Designer"]
     this.currentIndex = 0
     this.init()
   }
@@ -354,21 +331,23 @@ class TypingAnimation {
   init() {
     if (!this.element) return
 
+    // Initial text set
+    this.element.textContent = this.texts[this.currentIndex];
+
     setInterval(() => {
-      this.typeText()
-    }, 4000)
+      this.currentIndex = (this.currentIndex + 1) % this.texts.length;
+      this.typeText();
+    }, 4000); // Change text every 4 seconds
   }
 
   async typeText() {
-    const text = this.texts[this.currentIndex]
-    this.element.textContent = ""
+    const text = this.texts[this.currentIndex];
+    this.element.textContent = ""; // Clear current text
 
     for (let i = 0; i < text.length; i++) {
-      this.element.textContent += text[i]
-      await new Promise((resolve) => setTimeout(resolve, 100))
+      this.element.textContent += text[i];
+      await new Promise((resolve) => setTimeout(resolve, 100)); // Type character by character
     }
-
-    this.currentIndex = (this.currentIndex + 1) % this.texts.length
   }
 }
 
@@ -442,7 +421,7 @@ class PerformanceOptimizer {
   }
 }
 
-// Testimonials Carousel
+// Testimonials Carousel (Show More/Less)
 class TestimonialsCarousel {
   constructor() {
     this.container = $("#testimonials-grid")
@@ -490,8 +469,8 @@ document.addEventListener("DOMContentLoaded", () => {
   new ScrollProgress()
   new Navigation()
   new ScrollAnimations()
-  new ParallaxEffects()
-  new WorkEffects()
+  // Removed ParallaxEffects as it's not in the target UI
+  // Removed WorkEffects as it's not in the target UI
   new ContactForm()
   new TypingAnimation()
   new TestimonialsCarousel()
