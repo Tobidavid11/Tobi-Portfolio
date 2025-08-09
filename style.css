@@ -876,14 +876,21 @@ body {
 }
 
 .skill-icons-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
-  gap: var(--space-md);
+  display: flex; /* Changed to flex for horizontal layout */
+  overflow: hidden; /* Hide scrollbar */
+  width: 100%;
+  max-width: 600px; /* Constrain width */
   margin-top: var(--space-3xl);
   opacity: 0;
   animation: fadeIn 0.8s ease 1.2s forwards;
-  max-width: 600px; /* Constrain width */
-  width: 100%;
+  position: relative; /* For absolute positioning of track if needed, or just for context */
+}
+
+.skill-icons-track {
+  display: flex;
+  white-space: nowrap; /* Prevent items from wrapping */
+  animation: marquee 20s linear infinite; /* Adjust duration as needed */
+  gap: var(--space-md); /* Spacing between items */
 }
 
 .skill-icon-item {
@@ -898,6 +905,7 @@ body {
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   transition: all var(--transition-normal);
+  flex-shrink: 0; /* Prevent items from shrinking */
 }
 
 [data-theme="light"] .skill-icon-item {
@@ -915,6 +923,15 @@ body {
   width: 32px;
   height: 32px;
   object-fit: contain;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%); /* Move half the track width to loop seamlessly */
+  }
 }
 
 .hero-visual {
@@ -1651,18 +1668,23 @@ section {
   }
 
   .skill-icons-grid {
-    grid-template-columns: repeat(auto-fit, minmax(36px, 1fr));
-    gap: var(--space-sm);
+    gap: var(--space-lg); /* Increased gap for mobile */
+    padding: 0 var(--space-md); /* Add horizontal padding to grid */
+    box-sizing: content-box; /* Ensure padding doesn't affect animation width */
+  }
+
+  .skill-icons-track {
+    gap: var(--space-lg); /* Ensure gap is applied to track as well */
   }
 
   .skill-icon-item {
-    width: 40px;
-    height: 40px;
+    width: 48px; /* Keep consistent size */
+    height: 48px; /* Keep consistent size */
   }
 
   .skill-icon-item img {
-    width: 28px;
-    height: 28px;
+    width: 32px; /* Keep consistent size */
+    height: 32px; /* Keep consistent size */
   }
 
   .about-content {
@@ -1680,7 +1702,11 @@ section {
   }
 
   .work-grid {
-    gap: var(--space-lg);
+    gap: var(--space-2xl); /* Increased gap for mobile projects */
+  }
+
+  .work-item {
+    padding: var(--space-lg); /* Add more internal padding to work items */
   }
 
   .testimonials-grid {
@@ -1753,18 +1779,21 @@ section {
   }
 
   .skill-icons-grid {
-    grid-template-columns: repeat(auto-fit, minmax(32px, 1fr));
-    gap: var(--space-xs);
+    gap: var(--space-md); /* Adjusted gap for smaller screens */
+  }
+
+  .skill-icons-track {
+    gap: var(--space-md);
   }
 
   .skill-icon-item {
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
   }
 
   .skill-icon-item img {
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
   }
 
   .mobile-menu-content {
