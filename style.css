@@ -74,7 +74,7 @@
   --gray-800: #f8fafc;
   --gray-700: #f1f5f9;
   --gray-600: #e2e8f0;
-  --gray-500: #94a3b8;
+  --gray-500: #d1d1d1;
   --gray-400: #64748b;
   --gray-300: #475569;
   --gray-200: #334155;
@@ -832,7 +832,7 @@ body {
 
 .hero-cta .btn {
   flex-grow: 1;
-  max-width: 200px;
+  max-width:max-content;
 }
 
 .skill-icons-grid {
