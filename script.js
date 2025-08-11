@@ -1,578 +1,168 @@
-// Utility Functions
-const $ = (selector) => document.querySelector(selector)
-const $$ = (selector) => document.querySelectorAll(selector)
-
-// Custom Cursor
-class CustomCursor {
-  constructor() {
-    this.cursor = $(".cursor")
-    this.follower = $(".cursor-follower")
-    this.init()
-  }
-
-  init() {
-    if (!this.cursor || !this.follower) return
-
-    document.addEventListener("mousemove", (e) => {
-      this.cursor.style.left = e.clientX + "px"
-      this.cursor.style.top = e.clientY + "px"
-
-      setTimeout(() => {
-        this.follower.style.left = e.clientX + "px"
-        this.follower.style.top = e.clientY + "px"
-      }, 100)
-    })
-
-    // Cursor interactions
-    const interactiveElements = $$("a, button, .work-item, .skill-icon-item, .testimonial-item")
-    interactiveElements.forEach((el) => {
-      el.addEventListener("mouseenter", () => {
-        this.cursor.style.transform = "translate(-50%, -50%) scale(1.5)"
-        this.follower.style.transform = "translate(-50%, -50%) scale(1.5)"
-      })
-
-      el.addEventListener("mouseleave", () => {
-        this.cursor.style.transform = "translate(-50%, -50%) scale(1)"
-        this.follower.style.transform = "translate(-50%, -50%) scale(1)"
-      })
-    })
-  }
-}
-
-// Scroll Progress
-class ScrollProgress {
-  constructor() {
-    this.progressBar = $(".scroll-progress")
-    this.init()
-  }
-
-  init() {
-    if (!this.progressBar) return
-
-    window.addEventListener("scroll", () => {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop
-      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight
-      const progress = (scrollTop / scrollHeight) * 100
-      this.progressBar.style.width = `${progress}%`
-    })
-  }
-}
-
-// Navigation
-class Navigation {
-  constructor() {
-    this.nav = $(".nav")
-    this.navToggle = $(".nav-toggle")
-    this.mobileMenu = $(".mobile-menu")
-    this.mobileLinks = $$(".mobile-menu-link")
-    this.themeToggle = $(".theme-toggle")
-    this.desktopNavLinks = $$(".nav-list .nav-link"); // New selector for desktop links
-    this.init()
-  }
-
-  init() {
-    if (!this.nav || !this.navToggle || !this.mobileMenu) return
-
-    // Scroll effect
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 100) {
-        this.nav.classList.add("scrolled")
-      } else {
-        this.nav.classList.remove("scrolled")
-      }
-    })
-
-    // Mobile menu toggle
-    this.navToggle.addEventListener("click", () => {
-      this.toggleMobileMenu()
-    })
-
-    // Close mobile menu on link click
-    this.mobileLinks.forEach((link) => {
-      link.addEventListener("click", () => {
-        this.closeMobileMenu()
-      })
-    })
-
-    // Close mobile menu on escape key
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && this.mobileMenu.classList.contains("active")) {
-        this.closeMobileMenu()
-      }
-    })
-
-    // Theme toggle
-    if (this.themeToggle) {
-      this.themeToggle.addEventListener("click", () => {
-        this.toggleTheme()
-      })
-
-      // Initialize theme
-      this.initTheme()
-    }
-
-    // Smooth scroll for anchor links (both desktop and mobile)
-    $$('a[href^="#"]').forEach((link) => {
-      link.addEventListener("click", (e) => {
-        e.preventDefault()
-        const target = $(link.getAttribute("href"))
-        if (target) {
-          target.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-          })
-        }
-        // Close mobile menu if a link is clicked inside it
-        if (this.mobileMenu.classList.contains("active")) {
-          this.closeMobileMenu();
-        }
-      })
-    })
-
-    // Active link highlighting for desktop navigation
-    window.addEventListener('scroll', () => this.highlightNavLink());
-    this.highlightNavLink(); // Initial call
-  }
-
-  toggleMobileMenu() {
-    this.navToggle.classList.toggle("active")
-    this.mobileMenu.classList.toggle("active")
-    document.body.style.overflow = this.mobileMenu.classList.contains("active") ? "hidden" : ""
-  }
-
-  closeMobileMenu() {
-    this.navToggle.classList.remove("active")
-    this.mobileMenu.classList.remove("active")
-    document.body.style.overflow = ""
-  }
-
-  toggleTheme() {
-    const currentTheme = document.documentElement.getAttribute("data-theme")
-    const newTheme = currentTheme === "light" ? "dark" : "light"
-
-    document.documentElement.setAttribute("data-theme", newTheme)
-    localStorage.setItem("theme", newTheme)
-
-    // Add transition effect
-    document.body.style.transition = "all 0.3s ease"
-    setTimeout(() => {
-      document.body.style.transition = ""
-    }, 300)
-  }
-
-  initTheme() {
-    const savedTheme = localStorage.getItem("theme")
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches
-    const theme = savedTheme || (prefersDark ? "dark" : "light")
-
-    document.documentElement.setAttribute("data-theme", theme)
-  }
-
-  highlightNavLink() {
-    const sections = $$('section[id]');
-    let currentActive = '';
-
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - this.nav.offsetHeight - 20; // Adjust offset for fixed nav
-      const sectionHeight = section.clientHeight;
-      if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
-        currentActive = section.getAttribute('id');
-      }
-    });
-
-    this.desktopNavLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href').includes(currentActive)) {
-        link.classList.add('active');
-      }
-    });
-  }
-}
-
-// Scroll Animations
-class ScrollAnimations {
-  constructor() {
-    this.elements = $$(".animate-on-scroll, .section-tag, .section-title, .section-description, .about-description-text")
-    this.init()
-  }
-
-  init() {
-    if (!this.elements.length) return
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animated")
-            observer.unobserve(entry.target)
-          }
-        })
-      },
-      {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      },
-    )
-
-    this.elements.forEach((el) => {
-      el.classList.add("animate-on-scroll")
-      observer.observe(el)
-    })
-
-    // Animate skill bars
-    this.animateSkillBars()
-  }
-
-  animateSkillBars() {
-    const skillBars = $$(".skill-progress")
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const progress = entry.target.dataset.progress
-            entry.target.style.width = `${progress}%`
-            observer.unobserve(entry.target)
-          }
-        })
-      },
-      { threshold: 0.5 },
-    )
-
-    skillBars.forEach((bar) => observer.observe(bar))
-  }
-}
-
-// Contact Form
-class ContactForm {
-  constructor() {
-    this.form = $(".contact-form")
-    this.init()
-  }
-
-  init() {
-    if (!this.form) return
-
-    this.form.addEventListener("submit", (e) => {
-      e.preventDefault()
-      this.handleSubmit()
-    })
-  }
-
-  async handleSubmit() {
-    const formData = new FormData(this.form)
-    const submitBtn = this.form.querySelector('button[type="submit"]')
-    const originalText = submitBtn.innerHTML
-
-    // Show loading state
-    submitBtn.innerHTML = "<span>Sending...</span>"
-    submitBtn.disabled = true
-
-    try {
-      // Simulate form submission (replace with actual endpoint)
-      await new Promise((resolve) => setTimeout(resolve, 2000))
-
-      // Show success message
-      this.showMessage("Message sent successfully! I'll get back to you soon.", "success")
-      this.form.reset()
-    } catch (error) {
-      // Show error message
-      this.showMessage("Something went wrong. Please try again.", "error")
-    } finally {
-      // Reset button
-      submitBtn.innerHTML = originalText
-      submitBtn.disabled = false
-    }
-  }
-
-  showMessage(text, type) {
-    const message = document.createElement("div")
-    message.className = `form-message form-message--${type}`
-    message.textContent = text
-    message.style.cssText = `
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      padding: 1rem 1.5rem;
-      border-radius: 0.5rem;
-      color: white;
-      font-weight: 500;
-      z-index: 10000;
-      transform: translateX(100%);
-      transition: transform 0.3s ease;
-      ${type === "success" ? "background: #10b981;" : "background: #ef4444;"}
-    `
-
-    document.body.appendChild(message)
-
-    // Animate in
-    setTimeout(() => {
-      message.style.transform = "translateX(0)"
-    }, 100)
-
-    // Remove after 5 seconds
-    setTimeout(() => {
-      message.style.transform = "translateX(100%)"
-      setTimeout(() => {
-        document.body.removeChild(message)
-      }, 300)
-    }, 5000)
-  }
-}
-
-// Typing Animation
-class TypingAnimation {
-  constructor() {
-    this.element = $(".hero-title .gradient-text")
-    this.texts = ["#Product Designer", "#Web Developer", "#Brand Designer"]
-    this.currentIndex = 0
-    this.init()
-  }
-
-  init() {
-    if (!this.element) return
-
-    // Initial text set
-    this.element.textContent = this.texts[this.currentIndex];
-
-    setInterval(() => {
-      this.currentIndex = (this.currentIndex + 1) % this.texts.length;
-      this.typeText();
-    }, 4000); // Change text every 4 seconds
-  }
-
-  async typeText() {
-    const text = this.texts[this.currentIndex];
-    this.element.textContent = ""; // Clear current text
-
-    for (let i = 0; i < text.length; i++) {
-      this.element.textContent += text[i];
-      await new Promise((resolve) => setTimeout(resolve, 100)); // Type character by character
-    }
-  }
-}
-
-// Performance Optimization
-class PerformanceOptimizer {
-  constructor() {
-    this.init()
-  }
-
-  init() {
-    // Lazy load images
-    this.lazyLoadImages()
-
-    // Preload critical resources
-    this.preloadResources()
-
-    // Optimize scroll events
-    this.optimizeScrollEvents()
-  }
-
-  lazyLoadImages() {
-    const images = $$('img[loading="lazy"]')
-
-    if ("IntersectionObserver" in window) {
-      const imageObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const img = entry.target
-            img.src = img.dataset.src || img.src
-            img.classList.remove("lazy")
-            imageObserver.unobserve(img)
-          }
-        })
-      })
-
-      images.forEach((img) => imageObserver.observe(img))
-    }
-  }
-
-  preloadResources() {
-    // Preload critical fonts
-    const fontLinks = [
-      "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap",
-      "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap",
-    ]
-
-    fontLinks.forEach((href) => {
-      const link = document.createElement("link")
-      link.rel = "preload"
-      link.as = "style"
-      link.href = href
-      document.head.appendChild(link)
-    })
-  }
-
-  optimizeScrollEvents() {
-    let ticking = false
-
-    const optimizedScroll = () => {
-      // Batch scroll-related updates
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          // Scroll updates happen here
-          ticking = false
-        })
-        ticking = true
-      }
-    }
-
-    window.addEventListener("scroll", optimizedScroll, { passive: true })
-  }
-}
-
-// Testimonials Carousel (Show More/Less)
-class TestimonialsCarousel {
-  constructor() {
-    this.container = $("#testimonials-grid")
-    this.toggleBtn = $("#testimonials-toggle")
-    this.toggleText = this.toggleBtn?.querySelector(".toggle-text")
-    this.isExpanded = false
-    this.init()
-  }
-
-  init() {
-    if (!this.container || !this.toggleBtn) return
-
-    this.toggleBtn.addEventListener("click", () => {
-      this.toggleTestimonials()
-    })
-  }
-
-  toggleTestimonials() {
-    this.isExpanded = !this.isExpanded
-
-    if (this.isExpanded) {
-      this.container.classList.add("testimonials-expanded")
-      this.toggleBtn.classList.add("expanded")
-      this.toggleText.textContent = "Show"
-    } else {
-      this.container.classList.remove("testimonials-expanded")
-      this.toggleBtn.classList.remove("expanded")
-      this.toggleText.textContent = "Show More"
-    }
-
-    // Smooth scroll to keep the section in view
-    setTimeout(() => {
-      this.container.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-      })
-    }, 300)
-  }
-}
-
-// Initialize everything when DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
-  // Initialize all components
-  new CustomCursor()
-  new ScrollProgress()
-  new Navigation()
-  new ScrollAnimations()
-  // Removed ParallaxEffects as it's not in the target UI
-  // Removed WorkEffects as it's not in the target UI
-  new ContactForm()
-  new TypingAnimation()
-  new TestimonialsCarousel()
-  new PerformanceOptimizer()
+  // --- Custom Cursor ---
+  const cursor = document.querySelector(".cursor")
+  const cursorFollower = document.querySelector(".cursor-follower")
 
-  // Add loading animation
-  const loader = document.createElement("div")
-  loader.className = "page-loader"
-  loader.innerHTML = `
-    <div class="loader-content">
-      <div class="loader-spinner"></div>
-      <p>Loading amazing things...</p>
-    </div>
-  `
-  loader.style.cssText = `
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--gray-900);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10000;
-    transition: opacity 0.5s ease;
-  `
+  if (cursor && cursorFollower) {
+    document.addEventListener("mousemove", (e) => {
+      cursor.style.left = `${e.clientX}px`
+      cursor.style.top = `${e.clientY}px`
+      cursorFollower.style.left = `${e.clientX}px`
+      cursorFollower.style.top = `${e.clientY}px`
+    })
 
-  document.body.appendChild(loader)
+    document.querySelectorAll("a, button, .social-link, .work-link, .skill-icon-item").forEach((el) => {
+      el.addEventListener("mouseenter", () => {
+        cursor.style.transform = "translate(-50%, -50%) scale(0)"
+        cursorFollower.style.transform = "translate(-50%, -50%) scale(1.5)"
+        cursorFollower.style.opacity = "1"
+      })
+      el.addEventListener("mouseleave", () => {
+        cursor.style.transform = "translate(-50%, -50%) scale(1)"
+        cursorFollower.style.transform = "translate(-50%, -50%) scale(1)"
+        cursorFollower.style.opacity = "0.5"
+      })
+    })
+  }
 
-  // Remove loader after page load
-  window.addEventListener("load", () => {
-    setTimeout(() => {
-      loader.style.opacity = "0"
-      setTimeout(() => {
-        document.body.removeChild(loader)
-      }, 500)
-    }, 1000)
+  // --- Scroll Progress Bar ---
+  const scrollProgress = document.querySelector(".scroll-progress")
+  if (scrollProgress) {
+    window.addEventListener("scroll", () => {
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight
+      const scrolled = (scrollTop / scrollHeight) * 100
+      scrollProgress.style.width = `${scrolled}%`
+    })
+  }
+
+  // --- Navigation Scroll Effect ---
+  const nav = document.querySelector(".nav")
+  if (nav) {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        nav.classList.add("scrolled")
+      } else {
+        nav.classList.remove("scrolled")
+      }
+    })
+  }
+
+  // --- Mobile Menu Toggle ---
+  const navToggle = document.querySelector(".nav-toggle")
+  const mobileMenu = document.querySelector(".mobile-menu")
+  const mobileMenuClose = document.querySelector(".mobile-menu-close")
+  const mobileMenuLinks = document.querySelectorAll(".mobile-menu-link")
+
+  if (navToggle && mobileMenu && mobileMenuClose) {
+    const toggleMenu = () => {
+      navToggle.classList.toggle("active")
+      mobileMenu.classList.toggle("active")
+      document.body.classList.toggle("no-scroll") // Prevent scrolling when menu is open
+    }
+
+    navToggle.addEventListener("click", toggleMenu)
+    mobileMenuClose.addEventListener("click", toggleMenu)
+    mobileMenuLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        if (mobileMenu.classList.contains("active")) {
+          toggleMenu() // Close menu on link click
+        }
+      })
+    })
+  }
+
+  // --- Theme Toggle ---
+  const themeToggle = document.querySelector(".theme-toggle")
+  const currentTheme = localStorage.getItem("theme") || "dark"
+  document.documentElement.setAttribute("data-theme", currentTheme)
+
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      const theme = document.documentElement.getAttribute("data-theme")
+      if (theme === "dark") {
+        document.documentElement.setAttribute("data-theme", "light")
+        localStorage.setItem("theme", "light")
+      } else {
+        document.documentElement.setAttribute("data-theme", "dark")
+        localStorage.setItem("theme", "dark")
+      }
+    })
+  }
+
+  // --- Smooth Scroll for Nav Links ---
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault()
+      document.querySelector(this.getAttribute("href")).scrollIntoView({
+        behavior: "smooth",
+      })
+    })
   })
 
-  // Add some CSS for the loader
-  const loaderStyles = document.createElement("style")
-  loaderStyles.textContent = `
-    .loader-content {
-      text-align: center;
-      color: white;
-    }
-    
-    .loader-spinner {
-      width: 40px;
-      height: 40px;
-      border: 3px solid rgba(139, 92, 246, 0.3);
-      border-top: 3px solid var(--primary);
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-      margin: 0 auto 1rem;
-    }
-    
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    
-    .loader-content p {
-      margin: 0;
-      font-size: 0.875rem;
-      color: var(--gray-400);
-    }
-  `
-  document.head.appendChild(loaderStyles)
+  // --- Testimonials "Show More" Toggle ---
+  const testimonialsToggle = document.getElementById("testimonials-toggle")
+  const testimonialsGrid = document.getElementById("testimonials-grid")
 
-  console.log("🚀 Portfolio loaded successfully!")
-})
+  if (testimonialsToggle && testimonialsGrid) {
+    testimonialsToggle.addEventListener("click", () => {
+      testimonialsGrid.classList.toggle("testimonials-expanded")
+      testimonialsToggle.classList.toggle("expanded")
+      const toggleText = testimonialsToggle.querySelector(".toggle-text")
+      const toggleIcon = testimonialsToggle.querySelector(".toggle-icon")
 
-// Add some easter eggs
-document.addEventListener("keydown", (e) => {
-  // Konami code easter egg
-  const konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65]
-  window.konamiIndex = window.konamiIndex || 0
-
-  if (e.keyCode === konamiCode[window.konamiIndex]) {
-    window.konamiIndex++
-    if (window.konamiIndex === konamiCode.length) {
-      // Activate party mode
-      document.body.style.animation = "rainbow 2s infinite"
-      const style = document.createElement("style")
-      style.textContent = `
-        @keyframes rainbow {
-          0% { filter: hue-rotate(0deg); }
-          100% { filter: hue-rotate(360deg); }
-        }
-      `
-      document.head.appendChild(style)
-
-      setTimeout(() => {
-        document.body.style.animation = ""
-        document.head.removeChild(style)
-      }, 10000)
-
-      window.konamiIndex = 0
-    }
-  } else {
-    window.konamiIndex = 0
+      if (testimonialsGrid.classList.contains("testimonials-expanded")) {
+        toggleText.textContent = "Show Less"
+        toggleIcon.style.transform = "rotate(180deg)"
+      } else {
+        toggleText.textContent = "Show More"
+        toggleIcon.style.transform = "rotate(0deg)"
+      }
+    })
   }
+
+  // --- Scroll Animations (Intersection Observer) ---
+  const animateOnScrollElements = document.querySelectorAll(".animate-on-scroll")
+
+  const observerOptions = {
+    root: null, // viewport
+    rootMargin: "0px",
+    threshold: 0.1, // Trigger when 10% of the element is visible
+  }
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("animated")
+        observer.unobserve(entry.target) // Stop observing once animated
+      }
+    })
+  }, observerOptions)
+
+  animateOnScrollElements.forEach((el) => {
+    observer.observe(el)
+  })
+
+  // --- Skill Progress Bar Animation ---
+  const skillProgressBars = document.querySelectorAll(".skill-progress")
+
+  const skillObserverOptions = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.5, // Trigger when 50% of the skill bar is visible
+  }
+
+  const skillObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const progress = entry.target.dataset.progress
+        entry.target.style.width = `${progress}%`
+        observer.unobserve(entry.target)
+      }
+    })
+  }, skillObserverOptions)
+
+  skillProgressBars.forEach((bar) => {
+    skillObserver.observe(bar)
+  })
 })
