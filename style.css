@@ -1161,7 +1161,7 @@ section {
   }
 
   .work-image {
-    min-width: 40%;
+display: none;
   }
 
   .work-content {
@@ -1187,9 +1187,10 @@ section {
 
   .work-image {
     /* Set height for mobile so image doesn't expand beyond bounds */
-    height: 300px;
+    /* height: 300px;
     min-width: unset;
-    width: 100%;
+    width: 100%; */
+    display: none;
   }
 
   .work-content {
@@ -1212,7 +1213,8 @@ section {
 
   .work-image {
     /* Further reduced height for small phones */
-    height: 220px;
+    /* height: 220px; */
+    display: none;
   }
 
   .work-content {
@@ -1646,8 +1648,9 @@ section {
     flex-direction: column;
   }
   .work-image {
-    min-width: unset;
-    width: 100%;
+    /* min-width: unset;
+    width: 100%; */
+    display: none;
   }
 }
 
